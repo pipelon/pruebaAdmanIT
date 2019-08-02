@@ -10,8 +10,9 @@ class User extends React.Component {
     }
 
     componentDidMount() {
-
+        //OBTIENE EL PARAMETRO DEL ID DEL USUARIO
         const {match: {params}} = this.props;
+        //CONSUMO SERVICIO WEB DE NODEJS
         fetch('http://localhost:3000/user/' + params.userId)
                 .then(res => res.json())
                 .then(users => {

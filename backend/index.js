@@ -4,6 +4,8 @@ const app = express();
 
 //URL QUE RETORNA TODOS LOS USUARIOS
 app.get('/users', function (request, resp) {
+    //HABILITO TODOS LOS CORS
+    resp.header('Access-Control-Allow-Origin', '*');
     let apiRequest = require("request");
     apiRequest('https://reqres.in/api/users', function (error, response, body) {
         //Si no hay error retorno la respuesta
@@ -15,6 +17,8 @@ app.get('/users', function (request, resp) {
 
 //URL QUE RETORNA EL DETALLE DE UN USUARIO
 app.get('/user/:id', (request, resp) => {
+    //HABILITO TODOS LOS CORS
+    resp.header('Access-Control-Allow-Origin', '*');
     const id = request.params.id;
     let apiRequest = require("request");
     apiRequest('https://reqres.in/api/users/' + id, function (error, response, body) {
